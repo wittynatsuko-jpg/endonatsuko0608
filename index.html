@@ -1,12 +1,10 @@
-# Natsuko Endo Portfolio Site（index.html 完全版）
-
-```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Natsuko Endo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PeaNuts</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,25 +24,23 @@
     }
 
     body{
+
       background:
-      radial-gradient(circle at top right, rgba(255,215,120,0.22), transparent 30%),
-      radial-gradient(circle at bottom left, rgba(255,255,255,0.95), transparent 35%),
-      linear-gradient(to bottom, #f9f7f2, #f1ede4);
+      linear-gradient(
+          rgba(250,248,243,0.15),
+        rgba(244,240,233,0.92)
+      ),
+        url("bg.png");
+
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
 
       color:#2d2d2d;
-      font-family:'Noto Serif JP', serif;
-      overflow-x:hidden;
-      min-height:100vh;
-    }
 
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      background:
-      radial-gradient(circle at center, rgba(255,255,255,0.15), transparent 70%);
-      pointer-events:none;
-      z-index:-1;
+      font-family:'Noto Serif JP', serif;
+
+      overflow-x:hidden;
     }
 
     a{
@@ -52,305 +48,615 @@
       color:inherit;
     }
 
+    /* ===== HEADER ===== */
+
     header{
+
       position:fixed;
       top:0;
+      left:0;
+
       width:100%;
-      padding:26px 50px;
+
+      padding:18px 42px;
+
       display:flex;
       justify-content:space-between;
       align-items:center;
-      z-index:999;
 
-      backdrop-filter:blur(16px);
-      background:rgba(255,255,255,0.42);
-      border-bottom:1px solid rgba(255,255,255,0.4);
+      z-index:9999;
+
+      backdrop-filter:blur(14px);
+
+      background:rgba(255,255,255,0.45);
+
+      border-bottom:
+      1px solid rgba(255,255,255,0.55);
     }
 
-    .logo{
+    .header-left{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+
+    .logo-image{
+
+      width:62px;
+
+      filter:
+      drop-shadow(0 0 1px #555555)
+      drop-shadow(0 0 6px rgba(255,255,255,0.45));
+
+    }
+
+    .site-title{
+
       font-family:'Cormorant Garamond', serif;
-      font-size:32px;
+
+      font-size:40px;
+
+      color:#b89d59;
+
       letter-spacing:2px;
-      color:#b89247;
     }
 
     nav{
       display:flex;
       gap:28px;
+
       font-size:14px;
       letter-spacing:1px;
     }
 
     nav a{
+
       opacity:0.75;
+
       transition:0.3s ease;
     }
 
     nav a:hover{
+
       opacity:1;
-      color:#b89247;
+
+      color:#b89d59;
     }
 
+    /* ===== HERO ===== */
+
     .hero{
-      min-height:100vh;
+
+      min-height:72vh;
+
       display:flex;
       align-items:center;
       justify-content:center;
+
       text-align:center;
-      padding:140px 24px 100px;
+
+      padding:
+      150px 24px 80px;
+
       position:relative;
     }
 
-    .hero-glow{
+    .hero::before{
+
+      content:"";
+
       position:absolute;
-      width:800px;
-      height:800px;
+
+      width:700px;
+      height:700px;
+
       border-radius:50%;
-      background:radial-gradient(circle, rgba(255,230,170,0.35), transparent 70%);
+
+      background:
+      radial-gradient(
+        circle,
+        rgba(255,224,150,0.22),
+        transparent 70%
+      );
+
       top:-250px;
-      right:-200px;
-      filter:blur(20px);
+      right:-180px;
+
+      filter:blur(18px);
     }
 
     .hero-content{
+
+      position:relative;
+
       max-width:900px;
+
       z-index:2;
-      animation:fadeIn 1.8s ease;
+
+      animation:fadeUp 1.2s ease;
     }
 
     .hero-sub{
+
+      color:#b89d59;
+
+      letter-spacing:6px;
+
       font-size:13px;
-      letter-spacing:5px;
+
       text-transform:uppercase;
-      color:#b89247;
+
       margin-bottom:24px;
     }
 
     h1{
+
       font-family:'Cormorant Garamond', serif;
-      font-size:100px;
+
+      font-size:110px;
+
       line-height:1;
+
       font-weight:300;
-      color:#1e2a38;
-      margin-bottom:26px;
+
+      color:#1f2a37;
+
+      margin-bottom:24px;
     }
 
     .hero p{
+
       font-size:18px;
+
       line-height:2.2;
+
       color:#555;
-      margin-bottom:40px;
-    }
 
-    .quote{
-      margin-top:24px;
-      font-style:italic;
-      color:#8a7d62;
-      letter-spacing:1px;
-    }
-
-    .social-links{
-      margin-top:60px;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:18px;
-      max-width:1000px;
-      margin-left:auto;
-      margin-right:auto;
-    }
-
-    .social-card{
-      background:rgba(255,255,255,0.52);
-      border:1px solid rgba(255,255,255,0.7);
-      backdrop-filter:blur(14px);
-      border-radius:24px;
-      padding:24px;
-      transition:0.4s ease;
-      box-shadow:0 10px 30px rgba(0,0,0,0.05);
-    }
-
-    .social-card:hover{
-      transform:translateY(-6px);
-      background:rgba(255,255,255,0.75);
-    }
-
-    .social-card h3{
-      font-family:'Cormorant Garamond', serif;
-      color:#b89247;
-      font-size:30px;
-      margin-bottom:12px;
-    }
-
-    .social-card p{
-      font-size:14px;
-      color:#666;
-      word-break:break-all;
-    }
-
-    .section{
-      padding:120px 24px;
-    }
-
-    .container{
-      max-width:1100px;
-      margin:auto;
-    }
-
-    .section-title{
-      text-align:center;
-      font-family:'Cormorant Garamond', serif;
-      font-size:58px;
-      color:#1e2a38;
       margin-bottom:20px;
     }
 
-    .section-description{
-      text-align:center;
-      color:#666;
-      line-height:2;
-      margin-bottom:60px;
+    .quote{
+
+      color:#8f7d55;
+
+      font-style:italic;
+
+      letter-spacing:1px;
     }
 
-    .video-box{
-      background:rgba(255,255,255,0.55);
+    /* ===== MAIN LAYOUT ===== */
+
+    .main-grid{
+
+      max-width:1400px;
+
+      margin:auto;
+
+      display:grid;
+
+      grid-template-columns:
+      340px 1fr;
+
+      gap:42px;
+
+      padding:
+      0 40px 80px;
+    }
+
+    /* ===== LEFT SIDE ===== */
+
+    .left-column{
+
+      position:sticky;
+
+      top:110px;
+
+      height:fit-content;
+    }
+
+    .glass-box{
+
+      background:
+      rgba(255,255,255,0.45);
+
+      backdrop-filter:blur(16px);
+
+      border:
+      1px solid rgba(255,255,255,0.65);
+
       border-radius:28px;
-      padding:28px;
-      backdrop-filter:blur(14px);
-      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+
+      box-shadow:
+      0 10px 40px rgba(0,0,0,0.06);
+
+      overflow:hidden;
     }
 
-    iframe{
-      width:100%;
-      aspect-ratio:16 / 9;
-      border:none;
-      border-radius:20px;
-    }
+    .links-box{
 
-    .news-wrapper{
-      margin-top:40px;
-      background:rgba(255,255,255,0.52);
-      border-radius:28px;
       padding:30px;
-      backdrop-filter:blur(14px);
-      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .section-title{
+
+      font-family:'Cormorant Garamond', serif;
+
+      font-size:56px;
+
+      color:#1f2a37;
+
+      margin-bottom:24px;
+    }
+
+    .link-list{
+
+      display:flex;
+      flex-direction:column;
+
+      gap:16px;
+    }
+
+    .link-card{
+
+      padding:18px 20px;
+
+      border-radius:18px;
+
+      background:
+      rgba(255,255,255,0.65);
+
+      transition:0.35s ease;
+
+      border:
+      1px solid rgba(255,255,255,0.75);
+    }
+
+    .link-card:hover{
+
+      transform:
+      translateX(4px);
+
+      background:white;
+    }
+
+    .link-card h3{
+
+      font-family:'Cormorant Garamond', serif;
+
+      color:#b89d59;
+
+      font-size:30px;
+
+      margin-bottom:6px;
+    }
+
+    .link-card p{
+
+      color:#666;
+
+      font-size:13px;
+
+      word-break:break-all;
+    }
+
+    /* ===== RIGHT ===== */
+
+    .right-column{
+
+      display:flex;
+      flex-direction:column;
+
+      gap:36px;
+    }
+
+    .news-box{
+
+      padding:34px;
     }
 
     .news-scroll{
-      max-height:300px;
+
+      max-height:520px;
+
       overflow-y:auto;
+
       display:flex;
       flex-direction:column;
-      gap:14px;
-      padding-right:8px;
+
+      gap:16px;
+
+      padding-right:6px;
     }
 
     .news-item{
-      background:rgba(255,255,255,0.75);
-      border-radius:18px;
-      padding:18px;
+
+      padding:20px;
+
+      border-radius:20px;
+
+      background:
+      rgba(255,255,255,0.72);
+
       cursor:pointer;
-      transition:0.3s ease;
-      border:1px solid rgba(255,255,255,0.8);
+
+      transition:0.35s ease;
+
+      border:
+      1px solid rgba(255,255,255,0.82);
     }
 
     .news-item:hover{
-      transform:translateX(4px);
+
+      transform:
+      translateX(5px);
+
       background:white;
     }
 
     .news-date{
-      color:#b89247;
+
+      color:#b89d59;
+
       font-size:13px;
+
       margin-bottom:8px;
     }
 
     .news-title{
-      font-size:17px;
-      color:#1e2a38;
+
+      font-size:18px;
+
+      color:#1f2a37;
     }
 
-    .modal{
-      display:none;
-      position:fixed;
+    /* ===== VIDEO ===== */
+
+    .video-box{
+
+      padding:34px;
+    }
+
+    iframe{
+
+      width:100%;
+
+      aspect-ratio:16 / 9;
+
+      border:none;
+
+      border-radius:24px;
+    }
+
+    /* ===== FOOTER ===== */
+
+    footer{
+
+      margin-top:40px;
+
+      background:
+      linear-gradient(
+        to bottom,
+        #10233d,
+        #091322
+      );
+
+      color:#f0e6c7;
+
+      padding:
+      70px 24px;
+
+      text-align:center;
+
+      position:relative;
+
+      overflow:hidden;
+    }
+
+    footer::before{
+
+      content:"";
+
+      position:absolute;
+
       inset:0;
-      background:rgba(0,0,0,0.45);
-      z-index:2000;
+
+      background:
+      radial-gradient(
+        circle at top,
+        rgba(255,220,130,0.14),
+        transparent 70%
+      );
+
+      pointer-events:none;
+    }
+
+    .footer-logo{
+
+      width:74px;
+
+      margin-bottom:20px;
+
+      filter:
+      drop-shadow(0 0 1px #555555)
+      drop-shadow(0 0 8px rgba(255,255,255,0.25));
+    }
+
+    .footer-title{
+
+      font-family:'Cormorant Garamond', serif;
+
+      font-size:42px;
+
+      color:#d8bf81;
+
+      margin-bottom:12px;
+    }
+
+    .footer-text{
+
+      color:#d9d0b7;
+
+      line-height:2;
+    }
+
+    .copyright{
+
+      margin-top:30px;
+
+      opacity:0.7;
+
+      font-size:13px;
+    }
+
+    /* ===== MODAL ===== */
+
+    .modal{
+
+      display:none;
+
+      position:fixed;
+
+      inset:0;
+
+      background:
+      rgba(0,0,0,0.45);
+
+      z-index:99999;
+
       align-items:center;
       justify-content:center;
+
       padding:24px;
     }
 
     .modal-content{
-      background:#fffdf8;
-      max-width:700px;
+
       width:100%;
-      border-radius:28px;
-      padding:40px;
+      max-width:760px;
+
+      background:#fffdf8;
+
+      border-radius:30px;
+
+      padding:42px;
+
       position:relative;
-      animation:fadeIn 0.4s ease;
+
+      animation:fadeUp 0.4s ease;
     }
 
     .close-btn{
+
       position:absolute;
-      top:20px;
+
+      top:18px;
       right:24px;
-      font-size:28px;
+
+      font-size:30px;
+
       cursor:pointer;
-      color:#999;
+
+      color:#888;
     }
 
     .modal h3{
+
       font-family:'Cormorant Garamond', serif;
-      font-size:42px;
-      color:#b89247;
-      margin-bottom:20px;
+
+      font-size:50px;
+
+      color:#b89d59;
+
+      margin-bottom:22px;
     }
 
     .modal p{
-      line-height:2;
+
+      line-height:2.1;
+
       color:#555;
     }
 
-    footer{
-      text-align:center;
-      padding:80px 24px;
-      color:#777;
-      font-size:14px;
+    /* ===== ANIMATION ===== */
+
+    @keyframes fadeUp{
+
+      from{
+
+        opacity:0;
+
+        transform:
+        translateY(18px);
+      }
+
+      to{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+      }
     }
 
-    @keyframes fadeIn{
-      from{
-        opacity:0;
-        transform:translateY(16px);
+    /* ===== MOBILE ===== */
+
+    @media(max-width:1000px){
+
+      .main-grid{
+
+        grid-template-columns:1fr;
       }
-      to{
-        opacity:1;
-        transform:translateY(0);
+
+      .left-column{
+
+        position:relative;
+
+        top:0;
       }
     }
 
     @media(max-width:768px){
 
       header{
-        padding:22px;
+
+        padding:16px 22px;
       }
 
       nav{
+
         display:none;
       }
 
       h1{
-        font-size:60px;
+
+        font-size:64px;
+      }
+
+      .hero{
+
+        min-height:62vh;
+      }
+
+      .main-grid{
+
+        padding:
+        0 18px 60px;
       }
 
       .section-title{
-        font-size:42px;
+
+        font-size:38px;
       }
 
-      .hero p{
-        font-size:16px;
+      .site-title{
+
+        font-size:34px;
       }
 
+      .logo-image{
+
+        width:52px;
+      }
     }
 
   </style>
@@ -358,206 +664,408 @@
 
 <body>
 
-<header>
-  <div class="logo">Natsuko</div>
+  <!-- ===== HEADER ===== -->
 
-  <nav>
-    <a href="#links">Links</a>
-    <a href="#voice">Voice</a>
-    <a href="#news">News</a>
-  </nav>
-</header>
+  <header>
 
-<section class="hero">
+    <div class="header-left">
 
-  <div class="hero-glow"></div>
+      <!-- ロゴ画像 -->
+      <img
+     src="logo.png"
+      class="logo-image"
+      alt="PeaNuts Logo">
+        
 
-  <div class="hero-content">
-
-    <div class="hero-sub">
-      Writing / AI / Creation / Law
-    </div>
-
-    <h1>Natsuko Endo</h1>
-
-    <p>
-      静かな創作と、言葉。<br>
-      AI・法律・感性を横断しながら、<br>
-      自分らしい表現と働き方を探しています。
-    </p>
-
-    <div class="quote">
-      Quiet Creation for a Gentle Future.
-    </div>
-
-  </div>
-
-</section>
-
-<section class="section" id="links">
-
-  <div class="container">
-
-    <h2 class="section-title">Links</h2>
-
-    <p class="section-description">
-      SNS・Portfolio・Freelance Accounts
-    </p>
-
-    <div class="social-links">
-
-      <a class="social-card" href="https://x.com/endonatsuko0608" target="_blank">
-        <h3>X</h3>
-        <p>@endonatsuko0608</p>
-      </a>
-
-      <a class="social-card" href="https://www.instagram.com/endonatsuko0608" target="_blank">
-        <h3>Instagram</h3>
-        <p>@endonatsuko0608</p>
-      </a>
-
-      <a class="social-card" href="https://www.foriio.com/endonatsuko0608" target="_blank">
-        <h3>foriio</h3>
-        <p>Portfolio Archive</p>
-      </a>
-
-      <a class="social-card" href="https://crowdworks.jp/public/employees/endonatsuko0608" target="_blank">
-        <h3>CrowdWorks</h3>
-        <p>Freelance Profile</p>
-      </a>
-
-      <a class="social-card" href="https://www.lancers.jp/profile/endonatsuko0608" target="_blank">
-        <h3>Lancers</h3>
-        <p>Creative Works</p>
-      </a>
-
-      <a class="social-card" href="https://x.com/peanutsendonuts" target="_blank">
-        <h3>Writer X</h3>
-        <p>@peanutsendonuts</p>
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section class="section" id="voice">
-
-  <div class="container">
-
-    <h2 class="section-title">Voice Sample</h2>
-
-    <p class="section-description">
-      ボイスサンプル・YouTube Video
-    </p>
-
-    <div class="video-box">
-
-      <!-- ↓ YOUR YOUTUBE EMBED URL ↓ -->
-      <iframe src="https://www.youtube.com/watch?v=LYt4lw1730k" allowfullscreen></iframe>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section class="section" id="news">
-
-  <div class="container">
-
-    <h2 class="section-title">News</h2>
-
-    <p class="section-description">
-      Latest Updates & Journal
-    </p>
-
-    <div class="news-wrapper">
-
-      <div class="news-scroll">
-
-        <div class="news-item" onclick="openModal('news1')">
-          <div class="news-date">2026.05.29</div>
-          <div class="news-title">Official Website Opened</div>
-        </div>
-
-        <div class="news-item" onclick="openModal('news2')">
-          <div class="news-date">2026.06.01</div>
-          <div class="news-title">Administrative Scrivener Study Log Started</div>
-        </div>
-
-        <div class="news-item" onclick="openModal('news3')">
-          <div class="news-date">2026.06.03</div>
-          <div class="news-title">New Portfolio Updates</div>
-        </div>
-
+      <div class="site-title">
+        PeaNuts
       </div>
 
     </div>
 
+    <nav>
+
+      <a href="#links">Links</a>
+
+      <a href="#news">News</a>
+
+      <a href="#voice">Voice</a>
+
+    </nav>
+
+  </header>
+
+  <!-- ===== HERO ===== -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-sub">
+        Writing / AI / Creation / Law
+      </div>
+
+      <h1>
+        PeaNuts
+      </h1>
+
+      <p>
+        静かな創作と、言葉。<br>
+        AI・法律・感性を横断しながら、<br>
+        自分らしい表現と働き方を探しています。
+      </p>
+
+      <div class="quote">
+        Quiet Creation for a Gentle Future.
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== MAIN ===== -->
+
+  <main class="main-grid">
+
+    <!-- LEFT -->
+
+    <aside
+    class="left-column"
+    id="links">
+
+      <div class="glass-box links-box">
+
+        <h2 class="section-title">
+          Links
+        </h2>
+
+        <div class="link-list">
+
+          <a
+          class="link-card"
+          href="https://x.com/endonatsuko0608"
+          target="_blank">
+
+            <h3>X</h3>
+
+            <p>
+              @endonatsuko0608
+            </p>
+
+          </a>
+
+          <a
+          class="link-card"
+          href="https://www.instagram.com/endonatsuko0608"
+          target="_blank">
+
+            <h3>Instagram</h3>
+
+            <p>
+              @endonatsuko0608
+            </p>
+
+          </a>
+
+          <a
+          class="link-card"
+          href="https://www.foriio.com/endonatsuko0608"
+          target="_blank">
+
+            <h3>foriio</h3>
+
+            <p>
+              Portfolio Archive
+            </p>
+
+          </a>
+
+          <a
+          class="link-card"
+          href="https://crowdworks.jp/public/employees/endonatsuko0608"
+          target="_blank">
+
+            <h3>CrowdWorks</h3>
+
+            <p>
+              Freelance Profile
+            </p>
+
+          </a>
+
+          <a
+          class="link-card"
+          href="https://www.lancers.jp/profile/endonatsuko0608"
+          target="_blank">
+
+            <h3>Lancers</h3>
+
+            <p>
+              Creative Works
+            </p>
+
+          </a>
+
+          <a
+          class="link-card"
+          href="https://x.com/peanutsendonuts"
+          target="_blank">
+
+            <h3>Writer X</h3>
+
+            <p>
+              @peanutsendonuts
+            </p>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+    <!-- RIGHT -->
+
+    <section
+    class="right-column">
+
+      <!-- NEWS -->
+
+      <div
+      class="glass-box news-box"
+      id="news">
+
+        <h2 class="section-title">
+          News
+        </h2>
+
+        <div class="news-scroll">
+
+          <div
+          class="news-item"
+          onclick="openModal('news1')">
+
+            <div class="news-date">
+              2026.05.29
+            </div>
+
+            <div class="news-title">
+              Official Website Opened
+            </div>
+
+          </div>
+
+          <div
+          class="news-item"
+          onclick="openModal('news2')">
+
+            <div class="news-date">
+              2026.06.01
+            </div>
+
+            <div class="news-title">
+              Administrative Scrivener Study Log Started
+            </div>
+
+          </div>
+
+          <div
+          class="news-item"
+          onclick="openModal('news3')">
+
+            <div class="news-date">
+              2026.06.03
+            </div>
+
+            <div class="news-title">
+              New Portfolio Updates
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- YOUTUBE -->
+
+      <div
+      class="glass-box video-box"
+      id="voice">
+
+        <h2 class="section-title">
+          Voice Sample
+        </h2>
+
+        <!-- ↓ YouTube埋め込みURL変更 -->
+           
+          <iframe
+  src="https://www.youtube.com/embed/LYt4lw1730k"
+  title="Voice Sample"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+
+  <footer>
+
+    <img
+src="logo.png"
+    class="footer-logo"
+    alt="PeaNuts Logo">
+    
+
+    <div class="footer-title">
+      PeaNuts
+    </div>
+
+    <div class="footer-text">
+
+      Quiet Creation for a Gentle Future.<br>
+
+      AI / Writing / Creation / Law
+
+    </div>
+
+    <div class="copyright">
+      © 2026 PeaNuts
+    </div>
+
+  </footer>
+
+  <!-- ===== MODALS ===== -->
+
+  <div
+  class="modal"
+  id="news1">
+
+    <div class="modal-content">
+
+      <span
+      class="close-btn"
+      onclick="closeModal('news1')">
+
+      ×
+
+      </span>
+
+      <h3>
+        Official Website Opened
+      </h3>
+
+      <p>
+
+        個人サイト「PeaNuts」を正式公開しました。<br><br>
+
+        AI・ライティング・創作・法律学習など、
+        自分の活動を静かにまとめていく場所として
+        運営していきます。
+
+      </p>
+
+    </div>
+
   </div>
 
-</section>
+  <div
+  class="modal"
+  id="news2">
 
-<footer>
-  © 2026 Natsuko Endo
-</footer>
+    <div class="modal-content">
 
-<div class="modal" id="news1">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal('news1')">×</span>
-    <h3>Official Website Opened</h3>
-    <p>
-      個人サイトを正式公開しました。<br><br>
-      AI・ライティング・創作・法律学習など、
-      自分の活動を静かにまとめていく場所として運営していきます。
-    </p>
+      <span
+      class="close-btn"
+      onclick="closeModal('news2')">
+
+      ×
+
+      </span>
+
+      <h3>
+        Administrative Scrivener Study Log Started
+      </h3>
+
+      <p>
+
+        行政書士試験合格を目指し、
+        民法・行政法の学習記録を開始しました。
+
+      </p>
+
+    </div>
+
   </div>
-</div>
 
-<div class="modal" id="news2">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal('news2')">×</span>
-    <h3>Administrative Scrivener Study Log Started</h3>
-    <p>
-      行政書士試験合格を目指し、
-      民法・行政法の学習記録を開始しました。
-    </p>
+  <div
+  class="modal"
+  id="news3">
+
+    <div class="modal-content">
+
+      <span
+      class="close-btn"
+      onclick="closeModal('news3')">
+
+      ×
+
+      </span>
+
+      <h3>
+        New Portfolio Updates
+      </h3>
+
+      <p>
+
+        制作実績・創作活動・ライティング作品を
+        順次追加予定です。
+
+      </p>
+
+    </div>
+
   </div>
-</div>
 
-<div class="modal" id="news3">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal('news3')">×</span>
-    <h3>New Portfolio Updates</h3>
-    <p>
-      制作実績・創作活動・ライティング作品を順次追加予定です。
-    </p>
-  </div>
-</div>
+  <!-- ===== SCRIPT ===== -->
 
-<script>
+  <script>
 
-  function openModal(id){
-    document.getElementById(id).style.display = 'flex';
-  }
+    function openModal(id){
 
-  function closeModal(id){
-    document.getElementById(id).style.display = 'none';
-  }
+      document
+      .getElementById(id)
+      .style.display = 'flex';
+    }
 
-  window.onclick = function(event){
-    const modals = document.querySelectorAll('.modal');
+    function closeModal(id){
 
-    modals.forEach(modal => {
-      if(event.target === modal){
-        modal.style.display = 'none';
-      }
-    });
-  }
+      document
+      .getElementById(id)
+      .style.display = 'none';
+    }
 
-</script>
+    window.onclick = function(event){
+
+      const modals =
+      document.querySelectorAll('.modal');
+
+      modals.forEach(modal => {
+
+        if(event.target === modal){
+
+          modal.style.display = 'none';
+        }
+      });
+    }
+
+  </script>
 
 </body>
 </html>
