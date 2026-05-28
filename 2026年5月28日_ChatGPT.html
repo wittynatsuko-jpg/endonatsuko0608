@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natsuko Endo</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.95), rgba(248,245,239,1)),
+        #f8f5ef;
+
+      color:#2b2b2b;
+      font-family:'Noto Serif JP', serif;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* ===== HEADER ===== */
+
+    header{
+      width:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      padding:28px 60px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:100;
+      backdrop-filter:blur(10px);
+      background:rgba(255,255,255,0.45);
+    }
+
+    .logo{
+      font-family:'Cormorant Garamond', serif;
+      font-size:32px;
+      letter-spacing:2px;
+      color:#b18b3f;
+    }
+
+    nav{
+      display:flex;
+      gap:36px;
+      font-size:14px;
+      letter-spacing:1px;
+    }
+
+    nav a{
+      transition:0.3s ease;
+      opacity:0.75;
+    }
+
+    nav a:hover{
+      opacity:1;
+      color:#b18b3f;
+    }
+
+    /* ===== HERO ===== */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:120px 24px 80px;
+      position:relative;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:700px;
+      height:700px;
+      background:radial-gradient(circle, rgba(255,223,150,0.25), transparent 70%);
+      top:-200px;
+      right:-200px;
+      z-index:0;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:1;
+      max-width:900px;
+    }
+
+    .hero h1{
+      font-family:'Cormorant Garamond', serif;
+      font-size:96px;
+      font-weight:300;
+      letter-spacing:4px;
+      color:#1f2c3a;
+      margin-bottom:18px;
+    }
+
+    .hero p{
+      font-size:18px;
+      line-height:2;
+      color:#555;
+      margin-bottom:42px;
+    }
+
+    .hero-sub{
+      color:#b18b3f;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      font-size:13px;
+      margin-bottom:24px;
+    }
+
+    .button{
+      display:inline-block;
+      padding:14px 32px;
+      border:1px solid rgba(177,139,63,0.4);
+      border-radius:999px;
+      transition:0.4s ease;
+      background:rgba(255,255,255,0.65);
+      backdrop-filter:blur(6px);
+    }
+
+    .button:hover{
+      background:#b18b3f;
+      color:white;
+      transform:translateY(-2px);
+    }
+
+    /* ===== SECTION ===== */
+
+    section{
+      padding:120px 24px;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:auto;
+    }
+
+    .section-title{
+      font-family:'Cormorant Garamond', serif;
+      font-size:54px;
+      color:#1f2c3a;
+      margin-bottom:18px;
+      text-align:center;
+    }
+
+    .section-text{
+      text-align:center;
+      max-width:720px;
+      margin:0 auto 70px;
+      line-height:2;
+      color:#555;
+    }
+
+    /* ===== CARDS ===== */
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:32px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.72);
+      border:1px solid rgba(255,255,255,0.7);
+      border-radius:28px;
+      padding:36px;
+      backdrop-filter:blur(14px);
+      transition:0.4s ease;
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.04);
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .card h3{
+      font-family:'Cormorant Garamond', serif;
+      font-size:32px;
+      margin-bottom:14px;
+      color:#b18b3f;
+    }
+
+    .card p{
+      line-height:1.9;
+      color:#555;
+    }
+
+    /* ===== FOOTER ===== */
+
+    footer{
+      text-align:center;
+      padding:80px 24px;
+      color:#777;
+      font-size:14px;
+    }
+
+    /* ===== MOBILE ===== */
+
+    @media(max-width:768px){
+
+      header{
+        padding:24px;
+      }
+
+      nav{
+        gap:18px;
+        font-size:12px;
+      }
+
+      .hero h1{
+        font-size:56px;
+      }
+
+      .section-title{
+        font-size:42px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="logo">Natsuko</div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Profile</a>
+      <a href="#">Works</a>
+      <a href="#">Journal</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-sub">
+        Writing / AI / Creation / Law
+      </div>
+
+      <h1>Natsuko Endo</h1>
+
+      <p>
+        静かな創作と、言葉。<br>
+        AI・法律・感性を横断しながら、<br>
+        自分らしい表現と働き方を探しています。
+      </p>
+
+      <a class="button" href="#">
+        Explore
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section>
+
+    <div class="container">
+
+      <h2 class="section-title">About</h2>
+
+      <p class="section-text">
+        行政書士試験の勉強を続けながら、
+        AI・ライティング・動画制作など、
+        言葉と感性を軸にした活動を行っています。
+      </p>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>Writing</h3>
+          <p>
+            エッセイ、世界観設計、
+            感情表現を中心に執筆。
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>AI</h3>
+          <p>
+            AIツールを活用した
+            コンテンツ制作・効率化。
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Creation</h3>
+          <p>
+            静かな美意識と空気感を大切にした
+            表現活動。
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Natsuko Endo
+  </footer>
+
+</body>
+</html>
