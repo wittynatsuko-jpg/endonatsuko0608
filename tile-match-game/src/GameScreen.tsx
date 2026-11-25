@@ -125,7 +125,7 @@ export default function GameScreen() {
       {isDeadlocked && (
         <View style={styles.banner}>
           <Text style={styles.bannerText}>揃えられる組み合わせがありません</Text>
-          <TouchableOpacity style={styles.button} onPress={handleShuffle}>
+          <TouchableOpacity style={styles.button} onPress={handleShuffle} testID="shuffle-button">
             <Text style={styles.buttonText}>シャッフル</Text>
           </TouchableOpacity>
         </View>
